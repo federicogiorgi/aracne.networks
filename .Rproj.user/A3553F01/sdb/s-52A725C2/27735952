@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "\\name{aracne.networks-package}\n\\Rdversion{1.4}\n\\alias{aracne.networks-package}\n\\alias{aracne.networks}\n\\docType{package}\n\\title{\nARACNe-inferred gene networks from TCGA tumor datasets\n}\n\\description{\nThis package contains ARACNe-inferred networks from TCGA tumor\ndatasets and functions to import new ones and export them into text form.}\n\\details{\n\\tabular{ll}{\nPackage: \\tab aracne.networks\\cr\nType: \\tab Package\\cr\nVersion: \\tab 0.99.2\\cr\nDate: \\tab 2016-06-07\\cr\nLicense: \\tab LGPL-3\\cr\nLazyLoad: \\tab yes\\cr\n}\n}\n\\author{\nFederico M. Giorgi\n\nMaintainer: Federico M. Giorgi <federico.giorgi@gmail.com>\n}\n\\references{\nGiorgi,F.M. et al. (2016) ARACNe-AP: Gene Network Reverse Engineering through Adaptive Partitioning inference of Mutual Information. Bioinformatics 2016\nAlvarez, M.J. et al. (2016) Functional characterization of somatic mutations in cancer using network-based inference of protein activity. Nature Genetics 2016\n}\n",
+    "created" : 1465596782999.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1568139055",
+    "id" : "27735952",
+    "lastKnownWriteTime" : 1465437258,
+    "last_content_update" : 1465437258,
+    "path" : "C:/Users/fmg2117/Dropbox/RStudio/aracne.networks/man/aracne.networks-package.Rd",
+    "project_path" : "man/aracne.networks-package.Rd",
+    "properties" : {
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_doc"
+}

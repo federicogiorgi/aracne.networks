@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "\\documentclass{article}\n\\usepackage{fullpage}\n\\usepackage{hyperref}\n\\usepackage{authblk}\n%\\VignetteIndexEntry{Using aracne.networks}\n\n\\title{aracne.networks, a data package containing gene regulatory networks assembled from TCGA data by the ARACNe algorithm}\n\\author[1,2]{Federico M. Giorgi}\n\\author[1,3]{Mariano J. Alvarez}\n\\author[1]{Andrea Califano}\n\\affil[1]{Department of Systems Biology, Columbia University, New York, USA}\n\\affil[2]{CRUK, Cambridge University, Cambridge, UK}\n\\affil[3]{DarwinHealth Inc., New York, USA}\n\\date{\\today}\n\n\\begin{document}\n\\SweaveOpts{concordance=TRUE}\n\\maketitle\n\n\n<<echo=FALSE>>=\nlibrary(aracne.networks)\n@\n\n\n%-----------\n\\section{Overview of aracne.networks data package}\\label{sec:overview}\nThe \\emph{aracne.networks} data package provides context-specific transcriptional regulatory networks (also called interactomes or regulons) reverse engineered by the ARACNe algorithm from The Cancer Genome Atlas (TCGA) RNAseq expression profiles.\n\n\\paragraph{ARACNe networks}\nThis package contains \\Sexpr{nrow(data(package='aracne.networks')$results)} Mutual Information-based networks assembled by ARACNe-AP \\cite{Giorgi2016} with default parameters (MI p-value = $10^{-8}$, 100 bootstraps and  permutation seed = 1).\nARACNe-AP was run on RNA-Seq datasets normalized using Variance-Stabilizing Transformation \\cite{Anders2010}.\nThe raw data was downloaded on April 15\\textsuperscript{th}, 2015 from the TCGA website \\cite{Weinstein2013}.\nWe follow the TCGA naming convention (e.g. BRCA = Breast Carcinoma) to name the individual context-specific networks.\n\n<<echo=TRUE, results=verbatim>>=\nlibrary(aracne.networks)\ndata(package=\"aracne.networks\")$results[, \"Item\"]\n@\n\n\\paragraph{Write a network to file}\nThe package contains a function to print individual networks into a file.\nFour columns will be printed: the Regulator id, the Target id, the Mode of Action (MoA, inferred by Spearman correlation analysis \\cite{Alvarez2016}) that indicates the sign of the association between regulator and target gene and ranges betrween -1 and +1, the Likelihood (essentially an edge weight that indicates how strong the mutual information for an edge is when compared to the maximum observed MI in the network, it ranges between 0 and 1). Further details about the \\emph{regulon} object as a model for transcriptional regulation are present in the manuscript \\cite{Alvarez2016}.\n\nIn the following example, we print the first 10 interactions from the bladder carcinoma (blca) network. The network genes are identified by Entrez Gene ids.\n<<echo=TRUE, results=verbatim>>=\ndata(regulonblca)\nwrite.regulon(regulonblca, n = 10)\n@\n\n%-----------\n\\begin{thebibliography}{00}\n\\bibitem{Giorgi2016} Giorgi,F.M. et al. (2016) ARACNe-AP: Gene Network Reverse Engineering through Adaptive Partitioning inference of Mutual Information. Bioinformatics doi: 10.1093/bioinformatics/btw216.\n\\bibitem{Anders2010} Anders, S and Huber W. (2010) Differential expression analysis for sequence count data. Genome Biol 2010;11(10):R106\n\\bibitem{Weinstein2013} Weinstein J.N. et al. (2013) The cancer genome atlas pan-cancer analysis project. Nature Genetics 45, 1113-1120 2013\n\\bibitem{Alvarez2016} Alvarez M.J. et al. (2016) Functional characterization of somatic mutations in cancer using network-based inference of protein activity. Nature Genetics \\emph{in press}.\n\\end{thebibliography}\n\n%----------\n\\end{document}\n\n\n",
+    "created" : 1465596282272.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "579172406",
+    "id" : "2B936DF2",
+    "lastKnownWriteTime" : 1465596382,
+    "last_content_update" : 1465596382806,
+    "path" : "C:/Users/fmg2117/Dropbox/RStudio/aracne.networks/vignettes/aracne.networks.Rnw",
+    "project_path" : "vignettes/aracne.networks.Rnw",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "sweave"
+}

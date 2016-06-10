@@ -1,0 +1,67 @@
+load("C:/Users/fmg2117/Dropbox/Projects_CUMC/aracne.networks/regulons.Rda")
+
+acronyms<-c(
+    "blca","brca","cesc","coad","esca","gbm","hnsc","kirc","kirp",
+    "laml","lihc","luad","lusc","ov","paad","pcpg","prad","read",
+    "sarc","stad","tgct","thca","thym","ucec"
+)
+
+niceAcros<-c("Bladder Carcinoma","Breast Carcinoma",
+             "Cervical Squamous Carcinoma",
+             "Colon Adenocarcinoma","Esophageal Carcinoma","Glioblastoma",
+             "Head and Neck Squamous Carcinoma",
+             "Kidney Renal Clear Cell Carcinoma",
+             "Kidney Papillary Carcinoma",
+             "Acute Myeloid Leukemia","Liver Hepatocellular Carcinoma",
+             "Lung Adenocarcinoma","Lung Squamous Carcinoma",
+             "Ovarian Carcinoma","Pancreas Carcinoma",
+             "Pheochromocytoma and Paraganglioma",
+             "Prostate Carcinoma","Rectal Adenocarcinoma","Sarcoma",
+             "Stomach Adenocarcinoma","Testicular Cancer",
+             "Thyroid Carcinoma","Thymoma",
+             "Utherine Corpus Endometroid Carcinoma")
+names(niceAcros)<-acronyms
+
+
+# Elegant solution
+cat("",file="data/datalist")
+for (acronym in acronyms){
+    message("Doing ",acronym)
+    a<-paste0("regulon",acronym,"<-regul$",acronym)
+    b<-paste0("save(regulon",acronym,",file='data/regulon",acronym,".rda')")
+    command<-paste0(a,";",b)
+    eval(parse(text=command))
+
+    cat(paste0("regulon",acronym,": regulon",acronym,"\n"),
+        file="data/datalist",append=TRUE)
+    #cat(paste0("regulon",acronym,"\n"),file="data/datalist",append=TRUE)
+}
+
+
+
+# Build a manual
+for (acronym in acronyms){
+    manstring<-paste0("
+       \\name{regulon",acronym,"}
+       \\Rdversion{1.4}
+       \\alias{regulon",acronym,"}
+       \\docType{data}
+       \\title{Human ",niceAcros[acronym]," context-specific ARACNe interactome}
+       \\description{
+       The interactome is a human ",niceAcros[acronym]," context-specific regulatory network reverse engineered by the ARACNE-AP algorithm.
+        The interactome is contained in a list object of S3 class `regulon' where each element represent a transcriptional
+        regulator (transcription factor) and contains two vectors: (1) a named numeric vector indicating the mode of regulation (MoR)
+        for each target gene, whose ID is indicated by the names attribute of the vector. (2) a numeric vector indicating the confidence score for the TF-target interaction.
+       }
+       \\usage{data(regulon",acronym,")}
+       \\examples{
+            data(regulon",acronym,")
+            write.regulon(regulon",acronym,",n=10)
+       }
+       \\references{
+       Giorgi,F.M. et al. (2016) ARACNe-AP: Gene Network Reverse Engineering through Adaptive Partitioning inference of Mutual Information. Bioinformatics doi: 10.1093/bioinformatics/btw216.
+       }
+       \\keyword{datasets}
+    ")
+    cat(manstring,file=paste0("man/regulon",acronym,".Rd"))
+}

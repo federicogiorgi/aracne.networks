@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "### R code from vignette source 'aracne.networks.Rnw'\n\n###################################################\n### code chunk number 1: aracne.networks.Rnw:15-16\n###################################################\nlibrary(aracne.networks)\n\n\n###################################################\n### code chunk number 2: aracne.networks.Rnw:33-35\n###################################################\nlibrary(aracne.networks)\ndata(package=\"aracne.networks\")$results[,\"Item\"]\n\n\n###################################################\n### code chunk number 3: aracne.networks.Rnw:42-44\n###################################################\ndata(regulonblca)\nwrite.regulon(regulonblca,n=10)\n\n\n",
+    "created" : 1465596813072.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3895214732",
+    "id" : "D457C127",
+    "lastKnownWriteTime" : 1465416310,
+    "last_content_update" : 1465416310,
+    "path" : "C:/Users/fmg2117/Dropbox/RStudio/aracne.networks/inst/doc/aracne.networks.R",
+    "project_path" : "inst/doc/aracne.networks.R",
+    "properties" : {
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

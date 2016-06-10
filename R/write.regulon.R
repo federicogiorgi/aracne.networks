@@ -1,0 +1,37 @@
+write.regulon<-function(
+    regulon,
+    file="",
+    sep="\t",
+    header=TRUE,
+    n=Inf
+){
+
+    if(header){
+        cat(paste0("Regulator\tTarget\tMoA\tlikelihood\n"),file=file)
+    }
+    nn<-0
+    for(tf in names(regulon)){
+        x<-regulon[[tf]]
+        targets<-names(x$tfmode)
+        moas<-x$tfmode
+        likelihoods<-x$likelihood
+        tab<-cbind(rep(tf,length(targets)),targets,moas,likelihoods)
+        i<-1
+        while(nn<n&i<=nrow(tab)){
+            cat(
+                tab[i,],
+                file=file,
+                append=TRUE,
+                sep=sep
+            )
+            cat("\n",file=file,append=TRUE)
+            nn<-nn+1
+            i<-i+1
+        }
+    }
+}
+
+
+
+
+

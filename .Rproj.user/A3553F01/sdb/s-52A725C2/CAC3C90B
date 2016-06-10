@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "Package: aracne.networks\nType: Package\nTitle: ARACNe-inferred gene networks from TCGA tumor datasets\nVersion: 0.99.0\nAuthor: Federico M. Giorgi\nMaintainer: Federico M. Giorgi <federico.giorgi@gmail.com>\nSuggests: viper\nDescription: This package contains ARACNe-inferred networks from TCGA tumor datasets and functions to import new ones and export them into plain-text format\nLicense: LGPL-3\nLazyData: TRUE\nbiocViews: ExperimentData, Genome, Homo_sapiens_Data, CancerData\nNeedsCompilation: no\nPackaged: 2016-06-09 03:25:05 UTC; malvarez\n",
+    "created" : 1465597051130.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "593240433",
+    "id" : "CAC3C90B",
+    "lastKnownWriteTime" : 1465597061,
+    "last_content_update" : 1465597061950,
+    "path" : "C:/Users/fmg2117/Dropbox/RStudio/aracne.networks/DESCRIPTION",
+    "project_path" : "DESCRIPTION",
+    "properties" : {
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "dcf"
+}
