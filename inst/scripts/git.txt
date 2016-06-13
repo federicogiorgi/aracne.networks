@@ -1,3 +1,4 @@
+cd C:\Users\fmg2117\Dropbox\RStudio\aracne.networks
 git init
 git add --all
 git commit -m "commit"

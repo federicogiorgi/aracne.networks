@@ -26,6 +26,9 @@ and 1).
   \item{header}{Logical. If a header should be printed. Default is TRUE}
   \item{n}{Numeric. How many interactions to print. Default is Inf}
 }
+\value{
+    Text output containing the network in tabular format.
+}
 \examples{
 ### Create a random regulon with two hubs
 # The first hub will have 100 targets
