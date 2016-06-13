@@ -5,7 +5,9 @@ Version: 0.99.0
 Author: Federico M. Giorgi
 Maintainer: Federico M. Giorgi <federico.giorgi@gmail.com>
 Suggests: viper
-Description: This package contains ARACNe-inferred networks from TCGA tumor datasets and functions to import new ones and export them into plain-text format
+Description: This package contains ARACNe-inferred networks from TCGA
+    tumor datasets. It also contains a function to export them into
+    plain-text format.
 License: LGPL-3
 LazyData: TRUE
 biocViews: ExperimentData, Genome, Homo_sapiens_Data, CancerData

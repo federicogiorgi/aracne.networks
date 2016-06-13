@@ -5,7 +5,6 @@ write.regulon<-function(
     header=TRUE,
     n=Inf
 ){
-
     if(header){
         cat(paste0("Regulator\tTarget\tMoA\tlikelihood\n"),file=file)
     }
@@ -30,8 +29,3 @@ write.regulon<-function(
         }
     }
 }
-
-
-
-
-
