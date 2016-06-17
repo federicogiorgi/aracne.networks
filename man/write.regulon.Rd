@@ -25,6 +25,7 @@ and 1).
   \item{sep}{String, a separator for the fields (default = "\\t")}
   \item{header}{Logical. If a header should be printed. Default is TRUE}
   \item{n}{Numeric. How many interactions to print. Default is Inf}
+  \item{regulator}{String. A particular regulator. Default is NULL}
 }
 \value{
     Text output containing the network in tabular format.
@@ -48,6 +49,6 @@ write.regulon(regulon,file="network.txt")
 
 ### Print a the Prostate Adenocarcinoma (prad) network to standard output
 # The gene ids are in Entrez format
-data(regulonblca)
-write.regulon(regulonblca,file="",n=10)
+data(regulonprad)
+write.regulon(regulonprad,file="",n=10)
 }

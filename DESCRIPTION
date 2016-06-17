@@ -1,7 +1,7 @@
 Package: aracne.networks
 Type: Package
 Title: ARACNe-inferred gene networks from TCGA tumor datasets
-Version: 0.99.2
+Version: 0.99.3
 Author: Federico M. Giorgi
 Maintainer: Federico M. Giorgi <federico.giorgi@gmail.com>
 Suggests: viper
@@ -12,4 +12,4 @@ License: LGPL-3
 LazyData: TRUE
 biocViews: ExperimentData, Genome, Homo_sapiens_Data, CancerData
 NeedsCompilation: no
-Packaged: 2016-06-09 03:25:05 UTC; malvarez
+Depends: R (>= 3.3), viper

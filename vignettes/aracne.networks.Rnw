@@ -28,9 +28,10 @@ library(aracne.networks)
 The \emph{aracne.networks} data package provides context-specific transcriptional regulatory networks (also called interactomes or regulons) reverse engineered by the ARACNe algorithm from The Cancer Genome Atlas (TCGA) RNAseq expression profiles.
 
 \paragraph{ARACNe networks}
-This package contains \Sexpr{nrow(data(package='aracne.networks')$results)} Mutual Information-based networks assembled by ARACNe-AP \cite{Giorgi2016} with default parameters (MI p-value = $10^{-8}$, 100 bootstraps and  permutation seed = 1).
+This package contains \Sexpr{nrow(data(package='aracne.networks')$results)} Mutual Information-based networks assembled by ARACNe-AP \cite{Giorgi2016} with default parameters (MI p-value = $10^{-8}$, 100 bootstraps and  permutation seed = 1). ARACNe is a network inference algorithm based on an Adaptive Partioning (AP) Mutual Information (MI) approach \cite{Giorgi2016}. In short, ARACNe-AP estimates all pairwise Mutual Information scores between gene expression profiles, then assesses the significance of such Mutual Information by comparison to a null dataset. ARACNe then draws network edges between centroid genes (Transcription Factors and Signaling Proteins) and genes significantly associated with them (i.e. with significant MI). It then calculates Data Processing Inequality (DPI) to reduce the number of indirect connections.
+
 ARACNe-AP was run on RNA-Seq datasets normalized using Variance-Stabilizing Transformation \cite{Anders2010}.
-The raw data was downloaded on April 15\textsuperscript{th}, 2015 from the TCGA website \cite{Weinstein2013}.
+The raw data was downloaded on April 15\textsuperscript{th}, 2015 from the TCGA official website \cite{Weinstein2013}.
 We follow the TCGA naming convention (e.g. BRCA = Breast Carcinoma) to name the individual context-specific networks.
 
 <<echo=TRUE, results=verbatim>>=
@@ -47,6 +48,13 @@ In the following example, we print the first 10 interactions from the bladder ca
 data(regulonblca)
 write.regulon(regulonblca, n = 10)
 @
+The user may want to analyze all the connections of a particular regulator (E.g. "399", the RHOH gene).
+<<echo=TRUE, results=verbatim>>=
+data(regulonblca)
+write.regulon(regulonblca, regulator="399")
+@
+
+
 
 %-----------
 \begin{thebibliography}{00}
