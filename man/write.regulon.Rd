@@ -7,7 +7,8 @@ write.regulon(
     file="",
     sep="\t",
     header=TRUE,
-    n=Inf
+    n=Inf,
+    regulator=NULL
 )
 }
 \description{

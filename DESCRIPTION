@@ -1,7 +1,7 @@
 Package: aracne.networks
 Type: Package
 Title: ARACNe-inferred gene networks from TCGA tumor datasets
-Version: 0.99.4
+Version: 0.99.5
 Author: Federico M. Giorgi
 Maintainer: Federico M. Giorgi <federico.giorgi@gmail.com>
 Description: This package contains ARACNe-inferred networks from TCGA

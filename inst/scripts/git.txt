@@ -1,6 +1,6 @@
 cd C:\Users\fmg2117\Dropbox\RStudio\aracne.networks
 git init
 git add --all
-git commit -m "Attempt to fix bibliography latex problem in Windows"
+git commit -m "Added a 'regulator' argument in the docs for function write.regulon"
 git remote add origin https://github.com/federicogiorgi/aracne.networks.git
 git push -u origin master
