@@ -1,3 +1,4 @@
-#exportPattern("^[[:alpha:]]+")
 export("write.regulon")
+export("listRegulons")
+export("getRegulon")
 import(viper)

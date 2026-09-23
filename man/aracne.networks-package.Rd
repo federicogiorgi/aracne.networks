@@ -7,18 +7,22 @@
 ARACNe-inferred gene networks from TCGA tumor datasets
 }
 \description{
-This package contains ARACNe-inferred networks from TCGA tumor
-datasets and functions to import new ones and export them into text form.}
+This package provides access to ARACNe-inferred networks from TCGA tumor
+datasets and a function to export them into text form. The networks are
+hosted on Zenodo (\url{https://doi.org/10.5281/zenodo.ZENODO_RECORD}),
+downloaded on demand with \code{\link{getRegulon}} and cached locally.
+The available networks are listed by \code{\link{listRegulons}} and
+described in \link{regulons}.
+}
 \details{
 \tabular{ll}{
 Package: \tab aracne.networks\cr
 Type: \tab Package\cr
-License: \tab LGPL-3\cr
-LazyLoad: \tab yes\cr
+License: \tab file LICENSE\cr
 }
 }
 \author{
-Federico M. Giorgi
+Federico M. Giorgi, Mariano J. Alvarez
 
 Maintainer: Federico M. Giorgi <federico.giorgi@gmail.com>
 }
@@ -41,11 +45,14 @@ regulon[["hub2"]]<-list(
     likelihood=runif(67,0,1)
 )
 class(regulon)<-"regulon"
-write.regulon(regulon,file="network.txt")
+write.regulon(regulon,file=tempfile())
 
 
-### Print a the Prostate Adenocarcinoma (prad) network to standard output
+### List the available networks
+listRegulons()
+
+### Print the Bladder Carcinoma (blca) network to standard output
 # The gene ids are in Entrez format
-data(regulonprad)
+regulonblca<-getRegulon("blca")
 write.regulon(regulonblca,file="",n=10)
 }

@@ -1,0 +1,123 @@
+---
+title: "aracne.networks, a data package containing gene regulatory networks assembled from TCGA data by the ARACNe algorithm"
+author:
+- name: Federico M. Giorgi
+  affiliation:
+  - Department of Systems Biology, Columbia University, New York, USA
+  - CRUK, Cambridge University, Cambridge, UK
+- name: Mariano J. Alvarez
+  affiliation:
+  - Department of Systems Biology, Columbia University, New York, USA
+  - DarwinHealth Inc., New York, USA
+- name: Andrea Califano
+  affiliation: Department of Systems Biology, Columbia University, New York, USA
+date: "`r Sys.Date()`"
+output: BiocStyle::html_document
+vignette: >
+  %\VignetteIndexEntry{Using aracne.networks}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+# Overview of aracne.networks data package
+
+The *aracne.networks* data package provides context-specific transcriptional
+regulatory networks (also called interactomes or regulons) reverse engineered
+by the ARACNe algorithm from The Cancer Genome Atlas (TCGA) RNAseq expression
+profiles.
+
+## ARACNe networks
+
+This package contains `r nrow(aracne.networks::listRegulons())` Mutual
+Information-based networks assembled by ARACNe-AP ([Giorgi et al., 2016](#Giorgi2016)) with default
+parameters (MI p-value = $10^{-8}$, 100 bootstraps and permutation seed = 1).
+ARACNe is a network inference algorithm based on an Adaptive Partitioning (AP)
+Mutual Information (MI) approach ([Giorgi et al., 2016](#Giorgi2016)). In short, ARACNe-AP estimates
+all pairwise Mutual Information scores between gene expression profiles, then
+assesses the significance of such Mutual Information by comparison to a null
+dataset. ARACNe then draws network edges between centroid genes (Transcription
+Factors and Signaling Proteins) and genes significantly associated with them
+(i.e. with significant MI). It then calculates Data Processing Inequality (DPI)
+to reduce the number of indirect connections.
+
+ARACNe-AP was run on RNA-Seq datasets normalized using Variance-Stabilizing
+Transformation ([Anders and Huber, 2010](#Anders2010)). The raw data was downloaded on April 15^th^, 2015
+from the TCGA official website ([Weinstein et al., 2013](#Weinstein2013)). We follow the TCGA naming
+convention (e.g. BRCA = Breast Carcinoma) to name the individual
+context-specific networks.
+
+## Retrieving the networks
+
+The networks are hosted on Zenodo
+([doi:10.5281/zenodo.ZENODO_RECORD](https://doi.org/10.5281/zenodo.ZENODO_RECORD)).
+The list of available networks is returned by `listRegulons()`:
+
+```{r list}
+library(aracne.networks)
+listRegulons()
+```
+
+A network is retrieved with `getRegulon()`, using either its short name or the
+name of the data set distributed with previous versions of the package (e.g.
+`"regulonblca"`). The first call downloads the network and stores it in a local
+cache managed by `r BiocStyle::Biocpkg("BiocFileCache")`; subsequent calls read
+it from the cache, without requiring an internet connection.
+
+```{r get}
+regulonblca <- getRegulon("blca")
+class(regulonblca)
+length(regulonblca)
+```
+
+Code written for previous versions of the package, which used
+`data(regulonblca)`, can be updated by replacing that call with
+`regulonblca <- getRegulon("blca")`.
+
+## Write a network to file
+
+The package contains a function to print individual networks into a file.
+Four columns will be printed: the Regulator id, the Target id, the Mode of
+Action (MoA, inferred by Spearman correlation analysis ([Alvarez et al., 2016](#Alvarez2016))) that
+indicates the sign of the association between regulator and target gene and
+ranges between -1 and +1, the Likelihood (essentially an edge weight that
+indicates how strong the mutual information for an edge is when compared to the
+maximum observed MI in the network, it ranges between 0 and 1). Further details
+about the *regulon* object as a model for transcriptional regulation are
+present in the manuscript ([Alvarez et al., 2016](#Alvarez2016)).
+
+In the following example, we print the first 10 interactions from the bladder
+carcinoma (blca) network. The network genes are identified by Entrez Gene ids.
+
+```{r write}
+write.regulon(regulonblca, n = 10)
+```
+
+The user may want to analyze all the connections of a particular regulator
+(E.g. "399", the RHOH gene).
+
+```{r regulator}
+write.regulon(regulonblca, regulator = "399")
+```
+
+# References
+
+- <a id="Giorgi2016"></a>Giorgi, F.M. et al. (2016) ARACNe-AP: Gene Network
+  Reverse Engineering through Adaptive Partitioning inference of Mutual
+  Information. Bioinformatics 32(14):2233-2235. doi: 10.1093/bioinformatics/btw216.
+- <a id="Anders2010"></a>Anders, S. and Huber, W. (2010) Differential
+  expression analysis for sequence count data. Genome Biology 11(10):R106.
+- <a id="Weinstein2013"></a>Weinstein, J.N. et al. (2013) The Cancer Genome
+  Atlas Pan-Cancer analysis project. Nature Genetics 45:1113-1120.
+- <a id="Alvarez2016"></a>Alvarez, M.J. et al. (2016) Functional
+  characterization of somatic mutations in cancer using network-based inference
+  of protein activity. Nature Genetics 48(8):838-847.
+
+# Session information
+
+```{r session}
+sessionInfo()
+```

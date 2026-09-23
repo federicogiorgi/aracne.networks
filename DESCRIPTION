@@ -1,14 +1,24 @@
 Package: aracne.networks
 Type: Package
 Title: ARACNe-inferred gene networks from TCGA tumor datasets
-Version: 1.39.0
-Author: Federico M. Giorgi
-Maintainer: Federico M. Giorgi <federico.giorgi@gmail.com>, Mariano Alvarez <reef103@gmail.com>
-Description: This package contains ARACNe-inferred networks from TCGA
-    tumor datasets. It also contains a function to export them into
-    plain-text format.
+Version: 1.39.1
+Authors@R: c(
+    person("Federico M.", "Giorgi", email = "federico.giorgi@gmail.com",
+        role = c("aut", "cre"), comment = c(ORCID = "0000-0002-7325-9908")),
+    person("Mariano J.", "Alvarez", email = "reef103@gmail.com",
+        role = "aut"))
+Description: This package provides access to ARACNe-inferred gene
+    regulatory networks (regulons) from TCGA tumor datasets. The networks
+    are hosted on Zenodo, downloaded on demand and cached locally with
+    BiocFileCache. The package also contains a function to export them
+    into plain-text format.
 License: file LICENSE
-LazyData: TRUE
+URL: https://github.com/federicogiorgi/aracne.networks
+BugReports: https://github.com/federicogiorgi/aracne.networks/issues
 biocViews: ExperimentData, Genome, Homo_sapiens_Data, CancerData
 NeedsCompilation: no
-Depends: R (>= 3.3), viper
+Depends: R (>= 4.0), viper
+Imports: BiocFileCache, tools, utils
+Suggests: BiocStyle, knitr, rmarkdown, testthat
+VignetteBuilder: knitr
+Encoding: UTF-8

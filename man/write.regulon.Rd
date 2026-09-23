@@ -45,11 +45,11 @@ regulon[["hub2"]]<-list(
     likelihood=runif(67,0,1)
 )
 class(regulon)<-"regulon"
-write.regulon(regulon,file="network.txt")
+write.regulon(regulon,file=tempfile())
 
 
-### Print a the Prostate Adenocarcinoma (prad) network to standard output
+### Print the Bladder Carcinoma (blca) network to standard output
 # The gene ids are in Entrez format
-data(regulonprad)
-write.regulon(regulonprad,file="",n=10)
+regulonblca<-getRegulon("blca")
+write.regulon(regulonblca,file="",n=10)
 }
