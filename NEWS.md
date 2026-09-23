@@ -1,7 +1,7 @@
 # aracne.networks 1.39.1
 
 * The networks are no longer bundled in the package. They are hosted on
-  Zenodo (https://doi.org/10.5281/zenodo.ZENODO_RECORD) and downloaded on
+  Zenodo (https://doi.org/10.5281/zenodo.22918956) and downloaded on
   demand, keeping the package size well below the 100 MB limit of the
   Bioconductor build system. The network files are identical to the ones
   distributed in previous versions.

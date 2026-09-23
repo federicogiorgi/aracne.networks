@@ -9,7 +9,7 @@ ARACNe-inferred gene networks from TCGA tumor datasets
 \description{
 This package provides access to ARACNe-inferred networks from TCGA tumor
 datasets and a function to export them into text form. The networks are
-hosted on Zenodo (\url{https://doi.org/10.5281/zenodo.ZENODO_RECORD}),
+hosted on Zenodo (\url{https://doi.org/10.5281/zenodo.22918956}),
 downloaded on demand with \code{\link{getRegulon}} and cached locally.
 The available networks are listed by \code{\link{listRegulons}} and
 described in \link{regulons}.

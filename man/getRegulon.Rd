@@ -9,7 +9,7 @@ getRegulon(network, force = FALSE, verbose = TRUE)
 }
 \description{
 The ARACNe networks are stored on Zenodo
-(\url{https://doi.org/10.5281/zenodo.ZENODO_RECORD}).
+(\url{https://doi.org/10.5281/zenodo.22918956}).
 \code{listRegulons} returns the table of available networks.
 \code{getRegulon} downloads one network, stores it in a local
 \code{BiocFileCache} cache and returns it as a \code{regulon} object.

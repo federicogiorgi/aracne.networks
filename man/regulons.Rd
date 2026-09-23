@@ -77,7 +77,10 @@ retrieved with \code{\link{getRegulon}}, e.g.
 Objects of class regulon (\link[viper]{regulon-class}).
 }
 \source{
-\url{https://doi.org/10.5281/zenodo.ZENODO_RECORD}
+\url{https://doi.org/10.5281/zenodo.22918956}. The network files
+are released under the CC BY-NC-ND 4.0 license
+(\url{https://creativecommons.org/licenses/by-nc-nd/4.0/}); commercial use
+is not permitted.
 }
 \references{
 Giorgi, F.M. et al. (2016) ARACNe-AP: Gene Network Reverse Engineering through

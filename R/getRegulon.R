@@ -1,6 +1,6 @@
 ## Zenodo record hosting the network files
-## (https://doi.org/10.5281/zenodo.ZENODO_RECORD)
-.zenodoRecord <- "ZENODO_RECORD"
+## (https://doi.org/10.5281/zenodo.22918956)
+.zenodoRecord <- "22918956"
 
 .baseUrl <- function() {
     getOption(

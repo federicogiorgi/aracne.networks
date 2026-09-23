@@ -4,7 +4,7 @@ ARACNe-inferred gene regulatory networks (regulons) from TCGA tumor datasets,
 distributed through [Bioconductor](https://bioconductor.org/packages/aracne.networks).
 
 The 25 networks are hosted on Zenodo
-([doi:10.5281/zenodo.ZENODO_RECORD](https://doi.org/10.5281/zenodo.ZENODO_RECORD)),
+([doi:10.5281/zenodo.22918956](https://doi.org/10.5281/zenodo.22918956)),
 downloaded on demand and cached locally with BiocFileCache.
 
 ## Installation
@@ -32,6 +32,13 @@ write.regulon(regulonblca, file = "blca_network.txt")
 
 Since version 1.39.1 the networks are no longer bundled in the package:
 replace `data(regulonblca)` with `regulonblca <- getRegulon("blca")`.
+
+## License
+
+The package code is distributed under the terms in `LICENSE`. The network
+files on Zenodo are released under
+[CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/):
+commercial use is not permitted.
 
 ## References
 
